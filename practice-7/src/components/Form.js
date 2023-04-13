@@ -10,6 +10,8 @@ const Form = () => {
 
   const handleClick = () => {
     alert("Hello " + firstName)
+    setFirstName("")
+    
   }
 
   return (
