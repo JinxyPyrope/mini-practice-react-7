@@ -1,20 +1,25 @@
 import React, { useState } from "react"
 
-function Form() {
+const Form = () => {
   const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
+  // const [lastName, setLastName] = useState("")
+
+  const handleChange = e => {
+    setFirstName(e.target.value)
+  }
+
+  const handleClick = () => {
+    alert("Hello " + firstName)
+  }
 
   return (
     <>
       <form>
         <div>
-          <input value={firstName} name="firstName" placeholder="First Name" id="firstName" onChange={e => setFirstName(e.target.value)} />
-        </div>
-        <div>
-          <input value={lastName} name="lastName" placeholder="Last Name" id="lastName" onChange={e => setLastName(e.target.value)} />
+          <input type="text" name="firstName" value={firstName} placeholder="First Name" onChange={handleChange} />
         </div>
       </form>
-      <button onClick={() => alert("Hello " + firstName + " " + lastName + "!")}>GREET ME</button>
+      <button onClick={handleClick}>GREET ME</button>
     </>
   )
 }
